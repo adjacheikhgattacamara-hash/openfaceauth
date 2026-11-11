@@ -4,7 +4,7 @@ import numpy as np
 from faceauth.config import Config, load_config, set_values
 from faceauth.core import Verifier
 from faceauth.session import AuthSession
-from tests.test_verifier import make_fakes
+from test_verifier import make_fakes
 
 import sys
 
