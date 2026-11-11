@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=FaceAuth
+Comment=Déverrouillage par reconnaissance faciale
+Exec=/usr/local/bin/faceauth-gui
+Icon=openfaceauth
+Terminal=false
+Categories=Utility;Security;Settings;

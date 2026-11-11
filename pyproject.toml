@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openfaceauth"
+version = "0.7.0"
+description = "Déverrouillage par reconnaissance faciale pour Linux (PAM), avec détection du vivant, open source et configurable"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+keywords = ["face-recognition", "pam", "linux", "authentication", "ubuntu"]
+classifiers = [
+    "Operating System :: POSIX :: Linux",
+    "Topic :: System :: Systems Administration :: Authentication/Directory",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "face_recognition_models",
+    "opencv-python",
+    "numpy",
+    "pillow",
+]
+
+[project.optional-dependencies]
+antispoof = ["onnxruntime"]
+dev = ["pytest"]
+
+[project.scripts]
+faceauth = "faceauth.cli:main"
+faceauth-pam = "faceauth.pam:main"
+faceauth-gui = "faceauth.gui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+faceauth = ["assets/*.png", "assets/art/*.png", "assets/fonts/*", "assets/models/*"]

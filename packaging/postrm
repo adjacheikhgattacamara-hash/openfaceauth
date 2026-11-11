@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+case "$1" in
+remove|purge)
+    for cmd in faceauth faceauth-pam faceauth-gui; do rm -f "/usr/local/bin/$cmd"; done
+    rm -rf /opt/faceauth
+    gtk-update-icon-cache -f -t /usr/share/icons/hicolor >/dev/null 2>&1 || true
+    update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
+    ;;
+esac
+case "$1" in
+purge)
+    rm -rf /var/lib/faceauth   # visages enregistrés (données biométriques)
+    ;;
+esac
+exit 0

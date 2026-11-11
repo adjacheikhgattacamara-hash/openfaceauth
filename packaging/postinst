@@ -1,0 +1,31 @@
+#!/bin/sh
+# Installe l'environnement Python et les commandes. Connexion Internet requise.
+set -e
+PREFIX=/opt/faceauth
+SRC=/usr/share/openfaceauth/src
+
+case "$1" in
+configure)
+    python3 -m venv "$PREFIX/venv"
+    # setuptools < 81 : face_recognition_models a encore besoin de pkg_resources.
+    "$PREFIX/venv/bin/pip" install --upgrade pip wheel "setuptools<81"
+    # dlib : wheel précompilé (quelques secondes). Si aucun wheel ne correspond à
+    # cette machine, repli sur la compilation (cmake, build-essential, python3-dev,
+    # libopenblas-dev et liblapack-dev requis : 5 à 15 minutes).
+    "$PREFIX/venv/bin/pip" install dlib-bin || "$PREFIX/venv/bin/pip" install dlib
+    "$PREFIX/venv/bin/pip" install --upgrade --force-reinstall "$SRC"
+    # IA anti-usurpation (optionnelle) : un échec ici n'empêche pas l'installation.
+    "$PREFIX/venv/bin/pip" install onnxruntime \
+        || echo "FaceAuth : onnxruntime non installé (anti-usurpation par IA indisponible)."
+
+    install -d -m 700 /var/lib/faceauth
+    for cmd in faceauth faceauth-pam faceauth-gui; do
+        ln -sf "$PREFIX/venv/bin/$cmd" "/usr/local/bin/$cmd"
+    done
+    # Rafraîchit le cache d'icônes et le menu : sinon l'ancienne icône reste affichée.
+    gtk-update-icon-cache -f -t /usr/share/icons/hicolor >/dev/null 2>&1 || true
+    update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
+    echo "FaceAuth est installé. Lance « FaceAuth » depuis le menu des applications."
+    ;;
+esac
+exit 0

@@ -1,0 +1,16 @@
+#!/bin/sh
+# SÉCURITÉ : retire les lignes PAM avant la suppression des fichiers, sinon
+# la connexion pourrait pointer vers un programme absent.
+set -e
+PAM_DIR="${FACEAUTH_PAM_DIR:-/etc/pam.d}"
+case "$1" in
+remove|purge|deconfigure)
+    for f in "$PAM_DIR"/*; do
+        if [ -f "$f" ] && grep -q "# faceauth" "$f"; then
+            sed -i '/# faceauth/d' "$f"
+            echo "FaceAuth : ligne PAM retirée de $f"
+        fi
+    done
+    ;;
+esac
+exit 0
