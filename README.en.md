@@ -1,4 +1,4 @@
-<p align="center"><img src="src/faceauth/assets/logo.png" alt="OpenFaceAuth logo" width="110"></p>
+<p align="center"><img src="src/faceauth/assets/icon.png" alt="OpenFaceAuth logo" width="110"></p>
 
 <h1 align="center">OpenFaceAuth</h1>
 
@@ -124,3 +124,10 @@ The decision logic (`liveness.py`, `session.py`, `config.py`, `pamconf.py`) does
 ## License
 
 MIT, see [LICENSE](LICENSE).
+
+---
+
+<p align="center">
+  <img src="src/faceauth/assets/logo.png" alt="ACGC INNOV'BOT" width="70"><br>
+  Developed by <b>ACGC INNOV'BOT</b> · Adja Cheikh Gatta Camara
+</p>

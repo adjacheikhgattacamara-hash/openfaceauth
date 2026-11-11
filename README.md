@@ -1,4 +1,4 @@
-<p align="center"><img src="src/faceauth/assets/logo.png" alt="Logo OpenFaceAuth" width="110"></p>
+<p align="center"><img src="src/faceauth/assets/icon.png" alt="Logo OpenFaceAuth" width="110"></p>
 
 <h1 align="center">OpenFaceAuth</h1>
 
@@ -173,3 +173,10 @@ La logique de détection du vivant (`liveness.py`) et la configuration (`config.
 ## Licence
 
 MIT, voir [LICENSE](LICENSE).
+
+---
+
+<p align="center">
+  <img src="src/faceauth/assets/logo.png" alt="ACGC INNOV'BOT" width="70"><br>
+  Développé par <b>ACGC INNOV'BOT</b> · Adja Cheikh Gatta Camara
+</p>
