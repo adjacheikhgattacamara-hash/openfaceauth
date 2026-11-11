@@ -8,6 +8,8 @@ Face-recognition login for Linux (Ubuntu / Debian) using a plain webcam, no infr
 
 It plugs into PAM as **an additional way to authenticate**: if your face is not recognised, the camera is missing or anything fails, your **usual password** still works.
 
+<p align="center"><img src="docs/screenshot.png" alt="FaceAuth interface" width="720"></p>
+
 ## How it works
 
 1. **Recognition**: your face is compared with enrolled samples (`face_recognition` / dlib).

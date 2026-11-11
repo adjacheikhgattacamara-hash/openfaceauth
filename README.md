@@ -8,6 +8,8 @@ Déverrouillage par **reconnaissance faciale** pour Linux (Ubuntu / Debian), ave
 
 Il s'appuie sur PAM : FaceAuth est **un moyen d'authentification supplémentaire**. Si le visage n'est pas reconnu, si la caméra est absente ou si une erreur survient, le **mot de passe habituel** prend le relais.
 
+<p align="center"><img src="docs/screenshot.png" alt="Interface FaceAuth" width="720"></p>
+
 ## Fonctionnement
 
 1. **Reconnaissance** : comparaison de ton visage avec les échantillons enregistrés (`face_recognition` / dlib).
